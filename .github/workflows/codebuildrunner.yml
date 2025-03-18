@@ -1,0 +1,14 @@
+name: Test Unauthorized Repo
+
+on: [push]
+  
+
+jobs:
+  test:
+    runs-on: codebuild-GithubOrg-${{ github.run_id }}-${{ github.run_attempt }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test
+        run: |
+          echo "Running in unauthorized repository"
+          sleep 30
